@@ -1,0 +1,250 @@
+* {
+  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: rgba(10, 18, 32, 0.75);
+  border-bottom: 2px solid rgba(51, 204, 255, 0.3);
+  color: #cdd6f4;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+button {
+  box-shadow: inset 0 -2px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -2px #33ccff;
+}
+
+/* ワークスペース */
+#workspaces button {
+  padding: 0 8px;
+  background-color: transparent;
+  color: #7a8fa6;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  background: rgba(51, 204, 255, 0.15);
+  color: #cdd6f4;
+  box-shadow: none;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: rgba(51, 204, 255, 0.2);
+  color: #33ccff;
+  box-shadow: inset 0 -2px #33ccff;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background-color: rgba(255, 85, 85, 0.3);
+  color: #ff5555;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* 共通モジュールスタイル */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+  padding: 0 10px;
+  color: #cdd6f4;
+  background-color: rgba(26, 32, 44, 0.85);
+}
+
+/* 個別モジュール */
+#clock {
+  color: #33ccff;
+}
+
+#battery {
+  color: #cdd6f4;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #00ff99;
+}
+
+@keyframes blink {
+  to {
+    color: #ff5555;
+    background-color: rgba(255, 85, 85, 0.2);
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #ff5555;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  color: #33ccff;
+}
+
+#memory {
+  color: #a5c9ff;
+}
+
+#disk {
+  color: #7ab4cc;
+}
+
+#temperature {
+  color: #cdd6f4;
+}
+
+#temperature.critical {
+  color: #ff5555;
+}
+
+#network {
+  color: #33ccff;
+}
+
+#network.disconnected {
+  color: #ff5555;
+}
+
+#pulseaudio {
+  color: #cdd6f4;
+}
+
+#pulseaudio.muted {
+  color: #7a8fa6;
+}
+
+#wireplumber {
+  color: #cdd6f4;
+}
+
+#wireplumber.muted {
+  color: #7a8fa6;
+}
+
+#backlight {
+  color: #a5c9ff;
+}
+
+#tray {
+  background-color: rgba(26, 32, 44, 0.85);
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  color: #ff5555;
+}
+
+#mode {
+  background-color: rgba(51, 204, 255, 0.2);
+  color: #33ccff;
+  box-shadow: inset 0 -2px #33ccff;
+}
+
+#idle_inhibitor {
+  color: #7a8fa6;
+}
+
+#idle_inhibitor.activated {
+  color: #33ccff;
+}
+
+#power-profiles-daemon.performance {
+  color: #ff5555;
+}
+
+#power-profiles-daemon.balanced {
+  color: #33ccff;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #00ff99;
+}
+
+#mpd {
+  color: #a5c9ff;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+  color: #7a8fa6;
+}
+
+#scratchpad {
+  background: transparent;
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+#privacy {
+  padding: 0;
+}
+
+#privacy-item {
+  padding: 0 5px;
+  color: #cdd6f4;
+}
+
+#privacy-item.screenshare {
+  color: #ff9955;
+}
+
+#privacy-item.audio-in {
+  color: #00ff99;
+}
+
+#privacy-item.audio-out {
+  color: #33ccff;
+}
+
+label:focus {
+  background-color: transparent;
+}

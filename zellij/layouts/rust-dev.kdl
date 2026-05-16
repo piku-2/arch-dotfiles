@@ -1,0 +1,50 @@
+// Rust 開発用レイアウト
+//
+// 起動方法:
+//   zellij --layout rust-dev          (プロジェクトディレクトリで実行)
+//   zellij action new-tab --layout ~/.config/zellij/layouts/rust-dev.kdl
+//
+// ペイン構成:
+//   [dev タブ]
+//   ┌──────────────────────┬──────────────────┐
+//   │                      │  cargo           │
+//   │  nvim (60%)          │  (ビルド/実行)    │
+//   │                      ├──────────────────┤
+//   │                      │  shell           │
+//   │                      │  (汎用)           │
+//   └──────────────────────┴──────────────────┘
+//   [git タブ]  git 操作専用シェル
+
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab name="dev" cwd="." focus=true {
+        pane split_direction="vertical" {
+            // エディタペイン（左 60%）
+            pane name="editor" size="60%" focus=true {
+                command "nvim"
+            }
+
+            // 右側: ビルドと汎用シェルを縦に分割（40%）
+            pane split_direction="horizontal" size="40%" {
+                // cargo コマンド実行ペイン（上 65%）
+                // 用途: cargo build / cargo run / cargo test / cargo watch -x check
+                pane name="cargo" size="65%"
+
+                // 汎用シェル（下 35%）
+                // 用途: ファイル操作・grep・その他コマンド
+                pane name="shell" size="35%"
+            }
+        }
+    }
+
+    tab name="git" cwd="." {
+        // git 操作専用（lazygit / git log / git diff など）
+        pane name="git"
+    }
+}

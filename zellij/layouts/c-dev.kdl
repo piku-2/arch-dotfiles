@@ -1,0 +1,61 @@
+// C 開発用レイアウト
+//
+// 起動方法:
+//   zellij --layout c-dev             (プロジェクトディレクトリで実行)
+//   zellij action new-tab --layout ~/.config/zellij/layouts/c-dev.kdl
+//
+// ペイン構成:
+//   [dev タブ]
+//   ┌──────────────────────┬──────────────────┐
+//   │                      │  build           │
+//   │  nvim (60%)          │  (make/cmake)    │
+//   │                      ├──────────────────┤
+//   │                      │  debug           │
+//   │                      │  (gdb/shell)     │
+//   └──────────────────────┴──────────────────┘
+//   [build-log タブ]  make 出力・エラー確認用
+//   [git タブ]        git 操作専用シェル
+
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab name="dev" cwd="." focus=true {
+        pane split_direction="vertical" {
+            // エディタペイン（左 60%）
+            pane name="editor" size="60%" focus=true {
+                command "nvim"
+            }
+
+            // 右側: ビルドとデバッグを縦に分割（40%）
+            pane split_direction="horizontal" size="40%" {
+                // ビルドペイン（上 60%）
+                // 用途: make / cmake --build . / ninja / meson compile
+                pane name="build" size="60%"
+
+                // デバッグ/実行ペイン（下 40%）
+                // 用途: gdb ./a.out / valgrind / ./a.out で実行確認
+                pane name="debug" size="40%"
+            }
+        }
+    }
+
+    tab name="build-log" cwd="." {
+        pane split_direction="horizontal" {
+            // make/cmake の詳細ログ確認・エラー精読用
+            // 用途: make 2>&1 | tee build.log  / bear -- make  など
+            pane name="log" size="70%"
+            // compile_commands.json 生成・ccls/clangd 用ビルドDB確認
+            pane name="compdb" size="30%"
+        }
+    }
+
+    tab name="git" cwd="." {
+        // git 操作専用（lazygit / git log / git diff など）
+        pane name="git"
+    }
+}

@@ -1,0 +1,3 @@
+command = zellij
+confirm-close-surface = false
+background-opacity = 0.8

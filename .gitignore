@@ -1,0 +1,33 @@
+# Browser and Electron app profiles/caches
+google-chrome/
+discord/
+mozilla/
+Code - OSS/*
+!Code - OSS/User/
+Code - OSS/User/*
+!Code - OSS/User/settings.json
+
+# Runtime state and generated databases
+dconf/
+mozc/
+pulse/
+ibus/
+fcitx/
+github-copilot/
+pavucontrol.ini
+
+# Common cache/log files if created under .config
+Cache/
+Code Cache/
+GPUCache/
+DawnGraphiteCache/
+DawnWebGPUCache/
+Crashpad/
+logs/
+*.log
+*.tmp
+
+# Local agent connector mounts
+.agents/
+.codex/
+.claude/

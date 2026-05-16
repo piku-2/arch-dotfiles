@@ -1,0 +1,16 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "editor.insertSpaces": true,
+    "[c]": {
+        "editor.insertSpaces": false
+    },
+    "[cpp]": {
+        "editor.insertSpaces": false
+    },
+    "42header.email": "pi09158ku@gmail.com",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
+}
