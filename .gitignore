@@ -31,3 +31,8 @@ logs/
 .agents/
 .codex/
 .claude/
+
+# systemd user services (environment-specific symlinks)
+systemd/user/sockets.target.wants/
+systemd/user/default.target.wants/
+systemd/user/timers.target.wants/
