@@ -1,0 +1,14 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "github.copilot.enable": {
+        "*": true,
+        "c": false,
+        "cpp": false
+    },
+    "editor.inlineSuggest.enabled": false,
+    "workbench.startupEditor": "none"
+}

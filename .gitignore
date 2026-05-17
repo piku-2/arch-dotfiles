@@ -2,6 +2,10 @@
 google-chrome/
 discord/
 mozilla/
+Code/*
+!Code/User/
+Code/User/*
+!Code/User/settings.json
 Code - OSS/*
 !Code - OSS/User/
 Code - OSS/User/*
