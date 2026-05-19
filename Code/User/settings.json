@@ -6,9 +6,14 @@
     "files.insertFinalNewline": true,
     "github.copilot.enable": {
         "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "python": false,
         "c": false,
-        "cpp": false
+        "cpp": false,
+        "javascript": true
     },
-    "editor.inlineSuggest.enabled": false,
-    "workbench.startupEditor": "none"
+    "editor.inlineSuggest.enabled": true,
+    "workbench.startupEditor": "none",
+    "github.copilot.nextEditSuggestions.eagerness": "medium"
 }
