@@ -1,18 +1,14 @@
 add_newline = true
 
-# 1行目: ディレクトリ・Git・言語情報
-# 2行目: 入力プロンプト
-format = "$directory$git_branch$git_status$rust$c$package$cmd_duration$status\n$character"
-right_format = "$time"
+format = "$directory$git_branch$git_status$cmd_duration$status\n$character"
+right_format = ""
 
-# ── ディレクトリ ────────────────────────────────────────────
 [directory]
 truncation_length = 4
 truncation_symbol = "…/"
 style = "bold #a9b665"
 format = "[$path]($style) "
 
-# ── Git ────────────────────────────────────────────────────
 [git_branch]
 symbol = " "
 style = "bold #7daea3"
@@ -22,29 +18,6 @@ format = "[$symbol$branch]($style) "
 style = "bold #d8a657"
 format = "([$all_status$ahead_behind]($style) )"
 
-# ── Rust ───────────────────────────────────────────────────
-# Cargo.toml が存在するディレクトリで自動表示
-[rust]
-symbol = "🦀 "
-style = "bold #e37933"
-format = "[$symbol$version]($style) "
-
-# ── C ──────────────────────────────────────────────────────
-# .c / .h / Makefile 等が存在するディレクトリで自動表示
-[c]
-symbol = "󰙱 "
-style = "bold #519aba"
-format = "[$symbol$version]($style) "
-
-# ── パッケージバージョン ────────────────────────────────────
-# Cargo.toml の version フィールドを表示（Rust プロジェクト等）
-[package]
-symbol = " "
-style = "bold #d8a657"
-format = "[$symbol$version]($style) "
-display_private = false
-
-# ── 実行時間・終了ステータス ────────────────────────────────
 [cmd_duration]
 min_time = 500
 style = "bold #928374"
@@ -57,14 +30,6 @@ success_symbol = ""
 style = "bold #ea6962"
 format = "[$symbol$status]($style) "
 
-# ── 時刻（右端、無効化中） ─────────────────────────────────
-[time]
-disabled = true
-time_format = "%H:%M"
-style = "bold #89b482"
-format = "[ $time]($style)"
-
-# ── プロンプト文字 ──────────────────────────────────────────
 [character]
 success_symbol = "[❯](bold #c1121f) "
 error_symbol = "[❯](bold #ea6962) "
