@@ -1,9 +1,3 @@
--- ~/.vimrc と同じ設定（LazyVim のデフォルトを上書き）
-vim.cmd("syntax on")
-vim.opt.number = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.cindent = true
-vim.opt.showmatch = true
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
+-- C 言語固有の設定は after/ftplugin/c.lua で管理
+-- LazyVim のデフォルト設定は以下を参照:
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua

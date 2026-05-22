@@ -1,44 +1,46 @@
 # === フォント ===
 font-family = "Ubuntu Mono"
-font-size = 13
+font-size = 14
 
-# === 背景・前景 ===
-# Ubuntu名物のアバジン（暗い紫）
-background = #300A24
-# === Tangoカラーパレット（GNOME Terminalのデフォルト） ===
-# 通常色 0-7
-palette = 0=#2E3436
-palette = 1=#CC0000
-palette = 2=#4E9A06
-palette = 3=#C4A000
-palette = 4=#3465A4
-palette = 5=#75507B
-palette = 6=#06989A
-palette = 7=#D3D7CF
-# 明色 8-15
-palette = 8=#555753
-palette = 9=#EF2929
-palette = 10=#8AE234
-palette = 11=#FCE94F
-palette = 12=#729FCF
-palette = 13=#AD7FA8
-palette = 14=#34E2E2
-palette = 15=#EEEEEC
+# === 背景・前景（Neovim ハッカーテーマと統一） ===
+background = #000000
+foreground = #c8ffd8
 
 # === カーソル ===
 cursor-style = block
 cursor-style-blink = true
-cursor-color = #FFFFFF
+cursor-color = #00ff88
 
-# === 選択色（GNOME Terminalデフォルトに近い反転表示） ===
-selection-background = #B5D5FF
-selection-foreground = #000000
+# === 選択色 ===
+selection-background = #124330
+selection-foreground = #c8ffd8
 
-# === ウィンドウサイズ（80x24がGNOME Terminalのデフォルト） ===
+# === カラーパレット ===
+# 通常色 0-7
+palette = 0=#000000
+palette = 1=#ff4040
+palette = 2=#00c07a
+palette = 3=#ffd975
+palette = 4=#4d9fff
+palette = 5=#b060ff
+palette = 6=#00c0a0
+palette = 7=#c8ffd8
+# 明色 8-15
+palette = 8=#1f6d4b
+palette = 9=#ff6f6f
+palette = 10=#00ff88
+palette = 11=#fce94f
+palette = 12=#8fd9ff
+palette = 13=#c0a0ff
+palette = 14=#7affd5
+palette = 15=#eeeeec
+
+# === ウィンドウ ===
 window-width = 80
 window-height = 24
-
-# === 余白を控えめに（GNOME Terminalは内側パディングが小さい） ===
-window-padding-x = 2
-window-padding-y = 2
+window-padding-x = 6
+window-padding-y = 4
 window-padding-balance = true
+
+# === 半透明（重ねると背景が透けてかっこいい） ===
+background-opacity = 0.92
