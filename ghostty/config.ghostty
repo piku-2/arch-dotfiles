@@ -1,39 +1,40 @@
+# Ghostty の設定ファイル
 # === フォント ===
-font-family = "Ubuntu Mono"
+font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 
-# === 背景・前景（Neovim ハッカーテーマと統一） ===
-background = #000000
-foreground = #c8ffd8
+# === 背景・前景（Catppuccin Mocha） ===
+background = #1e1e2e
+foreground = #cdd6f4
 
 # === カーソル ===
 cursor-style = block
 cursor-style-blink = true
-cursor-color = #00ff88
+cursor-color = #f5e0dc
 
 # === 選択色 ===
-selection-background = #124330
-selection-foreground = #c8ffd8
+selection-background = #585b70
+selection-foreground = #cdd6f4
 
-# === カラーパレット ===
+# === カラーパレット（Catppuccin Mocha） ===
 # 通常色 0-7
-palette = 0=#000000
-palette = 1=#ff4040
-palette = 2=#00c07a
-palette = 3=#ffd975
-palette = 4=#4d9fff
-palette = 5=#b060ff
-palette = 6=#00c0a0
-palette = 7=#c8ffd8
+palette = 0=#45475a
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#f9e2af
+palette = 4=#89b4fa
+palette = 5=#f5c2e7
+palette = 6=#94e2d5
+palette = 7=#bac2de
 # 明色 8-15
-palette = 8=#1f6d4b
-palette = 9=#ff6f6f
-palette = 10=#00ff88
-palette = 11=#fce94f
-palette = 12=#8fd9ff
-palette = 13=#c0a0ff
-palette = 14=#7affd5
-palette = 15=#eeeeec
+palette = 8=#585b70
+palette = 9=#f38ba8
+palette = 10=#a6e3a1
+palette = 11=#f9e2af
+palette = 12=#89b4fa
+palette = 13=#cba6f7
+palette = 14=#94e2d5
+palette = 15=#a6adc8
 
 # === ウィンドウ ===
 window-width = 80
@@ -42,5 +43,5 @@ window-padding-x = 6
 window-padding-y = 4
 window-padding-balance = true
 
-# === 半透明（重ねると背景が透けてかっこいい） ===
-background-opacity = 0.92
+# === 半透明 ===
+background-opacity = 0.75

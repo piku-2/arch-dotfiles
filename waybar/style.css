@@ -1,14 +1,15 @@
 * {
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Noto Sans", sans-serif;
   font-size: 13px;
 }
 
 window#waybar {
-  background-color: rgba(10, 18, 32, 0.75);
-  border-bottom: 2px solid rgba(51, 204, 255, 0.3);
+  background-color: rgba(30, 30, 46, 0.80);
+  border-bottom: 2px solid rgba(203, 166, 247, 0.4);
   color: #cdd6f4;
   transition-property: background-color;
   transition-duration: 0.5s;
+  padding: 2px 4px;
 }
 
 window#waybar.hidden {
@@ -23,35 +24,36 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -2px #33ccff;
+  box-shadow: inset 0 -2px #cba6f7;
 }
 
 /* ワークスペース */
 #workspaces button {
-  padding: 0 8px;
+  padding: 0 10px;
   background-color: transparent;
-  color: #7a8fa6;
-  border-radius: 4px;
+  color: #6c7086;
+  border-radius: 8px;
+  margin: 4px 2px;
   transition: all 0.2s ease;
 }
 
 #workspaces button:hover {
-  background: rgba(51, 204, 255, 0.15);
+  background: rgba(203, 166, 247, 0.15);
   color: #cdd6f4;
-  box-shadow: none;
+  box-shadow: 0 0 8px rgba(203, 166, 247, 0.3);
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: rgba(51, 204, 255, 0.2);
-  color: #33ccff;
-  box-shadow: inset 0 -2px #33ccff;
+  background-color: rgba(203, 166, 247, 0.35);
+  color: #cba6f7;
+  box-shadow: inset 0 -2px #cba6f7, 0 0 8px rgba(203, 166, 247, 0.4);
   font-weight: bold;
 }
 
 #workspaces button.urgent {
-  background-color: rgba(255, 85, 85, 0.3);
-  color: #ff5555;
+  background-color: rgba(243, 139, 168, 0.3);
+  color: #f38ba8;
 }
 
 #window,
@@ -85,14 +87,31 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-  padding: 0 10px;
+  padding: 0 12px;
   color: #cdd6f4;
-  background-color: rgba(26, 32, 44, 0.85);
+  background-color: rgba(24, 24, 37, 0.85);
+  border-radius: 8px;
+  margin: 4px 2px;
+  transition: box-shadow 0.2s ease;
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#tray:hover,
+#idle_inhibitor:hover {
+  box-shadow: 0 0 8px rgba(203, 166, 247, 0.3);
 }
 
 /* 個別モジュール */
 #clock {
-  color: #33ccff;
+  color: #89b4fa;
 }
 
 #battery {
@@ -101,18 +120,22 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-  color: #00ff99;
+  color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  color: #f9e2af;
 }
 
 @keyframes blink {
   to {
-    color: #ff5555;
-    background-color: rgba(255, 85, 85, 0.2);
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.2);
   }
 }
 
 #battery.critical:not(.charging) {
-  color: #ff5555;
+  color: #f38ba8;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: steps(12);
@@ -121,15 +144,15 @@ button:hover {
 }
 
 #cpu {
-  color: #33ccff;
+  color: #89b4fa;
 }
 
 #memory {
-  color: #a5c9ff;
+  color: #cba6f7;
 }
 
 #disk {
-  color: #7ab4cc;
+  color: #89dceb;
 }
 
 #temperature {
@@ -137,15 +160,15 @@ button:hover {
 }
 
 #temperature.critical {
-  color: #ff5555;
+  color: #f38ba8;
 }
 
 #network {
-  color: #33ccff;
+  color: #89b4fa;
 }
 
 #network.disconnected {
-  color: #ff5555;
+  color: #f38ba8;
 }
 
 #pulseaudio {
@@ -153,7 +176,7 @@ button:hover {
 }
 
 #pulseaudio.muted {
-  color: #7a8fa6;
+  color: #6c7086;
 }
 
 #wireplumber {
@@ -161,15 +184,11 @@ button:hover {
 }
 
 #wireplumber.muted {
-  color: #7a8fa6;
+  color: #6c7086;
 }
 
 #backlight {
-  color: #a5c9ff;
-}
-
-#tray {
-  background-color: rgba(26, 32, 44, 0.85);
+  color: #f9e2af;
 }
 
 #tray > .passive {
@@ -178,42 +197,42 @@ button:hover {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  color: #ff5555;
+  color: #f38ba8;
 }
 
 #mode {
-  background-color: rgba(51, 204, 255, 0.2);
-  color: #33ccff;
-  box-shadow: inset 0 -2px #33ccff;
+  background-color: rgba(203, 166, 247, 0.2);
+  color: #cba6f7;
+  box-shadow: inset 0 -2px #cba6f7;
 }
 
 #idle_inhibitor {
-  color: #7a8fa6;
+  color: #6c7086;
 }
 
 #idle_inhibitor.activated {
-  color: #33ccff;
+  color: #cba6f7;
 }
 
 #power-profiles-daemon.performance {
-  color: #ff5555;
+  color: #f38ba8;
 }
 
 #power-profiles-daemon.balanced {
-  color: #33ccff;
+  color: #89b4fa;
 }
 
 #power-profiles-daemon.power-saver {
-  color: #00ff99;
+  color: #a6e3a1;
 }
 
 #mpd {
-  color: #a5c9ff;
+  color: #cba6f7;
 }
 
 #mpd.disconnected,
 #mpd.stopped {
-  color: #7a8fa6;
+  color: #6c7086;
 }
 
 #scratchpad {
@@ -234,15 +253,15 @@ button:hover {
 }
 
 #privacy-item.screenshare {
-  color: #ff9955;
+  color: #fab387;
 }
 
 #privacy-item.audio-in {
-  color: #00ff99;
+  color: #a6e3a1;
 }
 
 #privacy-item.audio-out {
-  color: #33ccff;
+  color: #89b4fa;
 }
 
 label:focus {

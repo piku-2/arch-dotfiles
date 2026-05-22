@@ -1,16 +1,17 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
+    name     = "catppuccin",
     lazy     = false,
     priority = 1000,
-    opts     = { theme = "dragon" },
+    opts     = { flavour = "mocha" },
     config   = function(_, opts)
-      require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa-dragon")
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "kanagawa-dragon" },
+    opts = { colorscheme = "catppuccin-mocha" },
   },
 }
