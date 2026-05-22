@@ -45,3 +45,6 @@ window-padding-balance = true
 
 # === 半透明 ===
 background-opacity = 0.75
+
+# === その他 ===
+confirm-close-surface = false
