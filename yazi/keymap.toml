@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on  = ["<C-c>"]
+run = "quit"
+desc = "Quit without confirmation"
