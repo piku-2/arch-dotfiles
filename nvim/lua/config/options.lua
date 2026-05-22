@@ -1,3 +1,0 @@
--- C 言語固有の設定は after/ftplugin/c.lua で管理
--- LazyVim のデフォルト設定は以下を参照:
--- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
