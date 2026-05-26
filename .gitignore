@@ -40,3 +40,6 @@ logs/
 systemd/user/sockets.target.wants/
 systemd/user/default.target.wants/
 systemd/user/timers.target.wants/
+
+# github-copilot
+gh/
