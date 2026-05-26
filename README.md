@@ -1,60 +1,46 @@
-# dotfiles
+# arch-dotfiles
 
-Arch Linux（Hyprland）の設定。
+Arch Linux / Hyprland を中心にした `~/.config` 用の dotfiles です。
 
-## 管理している設定
+Neovim の詳細は `nvim/README.md` を参照してください。
 
-| ディレクトリ / ファイル | 用途 |
-|---|---|
-| `nvim/` | Neovim（LazyVim + Copilot + JavaScript LSP） |
-| `ghostty/` | ターミナル（Ubuntu GNOME Terminal に準拠） |
-| `Code/User/settings.json` | VS Code |
-| `hypr/` | Hyprland（Arch 専用） |
-| `waybar/` | ステータスバー（Arch 専用） |
-| `cava/` | オーディオビジュアライザー（Arch 専用） |
-| `fcitx5/` | 日本語入力（Arch 専用） |
+## 収録内容
 
----
+| 種別 | ディレクトリ / ファイル | 用途 |
+|---|---|---|
+| デスクトップ | `hypr/` | Hyprland 本体、idle/lock/paper、起動スクリプト |
+| デスクトップ | `waybar/` | Waybar の設定とスタイル |
+| デスクトップ | `waypaper/` | 壁紙設定 |
+| デスクトップ | `cava/` | Cava の設定、テーマ、シェーダー |
+| デスクトップ | `ghostty/` | Ghostty ターミナル設定 |
+| デスクトップ | `foot/` | Foot の補助設定 |
+| デスクトップ | `yazi/` | Yazi のキーマップ |
+| 日本語入力 | `fcitx5/` | fcitx5 の設定 |
+| 日本語入力 | `fcitx/`, `ibus/`, `mozc/` | 入力メソッドの状態 / キャッシュ |
+| 開発 | `nvim/` | Neovim 設定（LazyVim ベース） |
+| 開発 | `git/` | Git 設定（ignore など） |
+| 開発 | `gh/` | GitHub CLI 設定 |
+| アプリ | `google-chrome/`, `discord/` | ブラウザ / Electron アプリの設定 |
+| システム | `dconf/`, `pulse/`, `gtk-3.0/`, `procps/`, `systemd/` | ユーザー環境の設定や状態 |
 
-## Ubuntu セットアップ手順（Neovim）
+## 使い方
 
-### 1. 必要なツールをインストール
-
-VS Code は [公式サイト](https://code.visualstudio.com/) の .deb パッケージをインストール。
-
-**Nerd Font**（nvim のアイコン表示に必須）: [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) をインストールし、ターミナルのフォントに設定する。
-
-### 2. リポジトリを clone
-
-`~/.config` はすでに存在するため、`git init` で取り込む。
+1. 既存の `~/.config` を退避する。
+2. このリポジトリを `~/.config` に取り込む。
 
 ```bash
 cd ~/.config
 git init
 git remote add origin https://github.com/piku-2/arch-dotfiles.git
-git fetch
-git checkout main
+git fetch origin
+git checkout -t origin/main
 ```
 
-> 既存ファイルと競合する場合は `git checkout main -- <ファイル>` で個別に取り込む。
+既存ファイルと競合する場合は `git checkout origin/main -- <path>` で個別に戻す。
+3. Hyprland / Waybar / 端末 / 入力メソッドは再ログイン、または各アプリの再起動で反映する。
+4. Neovim は `nvim/README.md` の手順に従う。
 
-### 3. Neovim の初回起動
+## 注意
 
-```bash
-nvim
-```
-
-起動時に lazy.nvim がプラグインを自動インストールする。完了後 `:qa` で終了し、再起動すると設定が完全に適用される。
-
-### 4. VS Code の設定を確認
-
-clone 後、`~/.config/Code/User/settings.json` が配置されていれば VS Code が自動で読み込む。
-
-## Ubuntu で使えない設定
-
-| ディレクトリ | 理由 |
-|---|---|
-| `hypr/` | Hyprland は Ubuntu の標準環境では動作しない |
-| `waybar/` | Hyprland 前提の設定 |
-| `cava/` | オーディオビジュアライザー（任意） |
-| `fcitx5/` | 日本語入力（別途セットアップが必要） |
+- `dconf/`、`ibus/`、`mozc/`、`pulse/` などは実機依存の状態を含むため、別環境へそのまま持っていくと再調整が必要な場合があります。
+- Arch 専用なのは主に `hypr/`、`waybar/`、`fcitx5/` 周辺です。
