@@ -135,7 +135,7 @@ animations {
 # Minimal visual overrides staged from arch-hyprland.
 # Keep existing monitor, autostart, keybinds, Eww, SwayNC, and wallpaper backend.
 source = ~/.config/hypr/configs/looknfeel.conf
-source = ~/.config/hypr/configs/UserAnimations.conf
+# source = ~/.config/hypr/configs/UserAnimations.conf
 
 # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
 # "Smart gaps" / "No gaps when only"

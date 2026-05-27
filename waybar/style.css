@@ -1,12 +1,14 @@
+@import "colors.css";
+
 * {
   font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Noto Sans", sans-serif;
   font-size: 13px;
 }
 
 window#waybar {
-  background-color: rgba(30, 30, 46, 0.80);
-  border-bottom: 2px solid rgba(203, 166, 247, 0.4);
-  color: #cdd6f4;
+  background-color: alpha(@surface, 0.80);
+  border-bottom: 2px solid alpha(@primary, 0.4);
+  color: @on_surface;
   transition-property: background-color;
   transition-duration: 0.5s;
   padding: 2px 4px;
@@ -24,36 +26,36 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -2px #cba6f7;
+  box-shadow: inset 0 -2px @primary;
 }
 
 /* ワークスペース */
 #workspaces button {
   padding: 0 10px;
   background-color: transparent;
-  color: #6c7086;
+  color: @outline;
   border-radius: 8px;
   margin: 4px 2px;
   transition: all 0.2s ease;
 }
 
 #workspaces button:hover {
-  background: rgba(203, 166, 247, 0.15);
-  color: #cdd6f4;
-  box-shadow: 0 0 8px rgba(203, 166, 247, 0.3);
+  background: alpha(@primary, 0.15);
+  color: @on_surface;
+  box-shadow: 0 0 8px alpha(@primary, 0.3);
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: rgba(203, 166, 247, 0.35);
-  color: #cba6f7;
-  box-shadow: inset 0 -2px #cba6f7, 0 0 8px rgba(203, 166, 247, 0.4);
+  background-color: alpha(@primary, 0.35);
+  color: @primary;
+  box-shadow: inset 0 -2px @primary, 0 0 8px alpha(@primary, 0.4);
   font-weight: bold;
 }
 
 #workspaces button.urgent {
-  background-color: rgba(243, 139, 168, 0.3);
-  color: #f38ba8;
+  background-color: alpha(@error, 0.3);
+  color: @error;
 }
 
 #window,
@@ -88,8 +90,8 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
   padding: 0 12px;
-  color: #cdd6f4;
-  background-color: rgba(24, 24, 37, 0.85);
+  color: @on_surface;
+  background-color: alpha(@surface_dim, 0.85);
   border-radius: 8px;
   margin: 4px 2px;
   transition: box-shadow 0.2s ease;
@@ -106,36 +108,36 @@ button:hover {
 #wireplumber:hover,
 #tray:hover,
 #idle_inhibitor:hover {
-  box-shadow: 0 0 8px rgba(203, 166, 247, 0.3);
+  box-shadow: 0 0 8px alpha(@primary, 0.3);
 }
 
 /* 個別モジュール */
 #clock {
-  color: #89b4fa;
+  color: @tertiary;
 }
 
 #battery {
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #a6e3a1;
+  color: @success;
 }
 
 #battery.warning:not(.charging) {
-  color: #f9e2af;
+  color: @warning;
 }
 
 @keyframes blink {
   to {
-    color: #f38ba8;
-    background-color: rgba(243, 139, 168, 0.2);
+    color: @error;
+    background-color: alpha(@error, 0.2);
   }
 }
 
 #battery.critical:not(.charging) {
-  color: #f38ba8;
+  color: @error;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: steps(12);
@@ -144,51 +146,51 @@ button:hover {
 }
 
 #cpu {
-  color: #89b4fa;
+  color: @tertiary;
 }
 
 #memory {
-  color: #cba6f7;
+  color: @primary;
 }
 
 #disk {
-  color: #89dceb;
+  color: @secondary;
 }
 
 #temperature {
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #temperature.critical {
-  color: #f38ba8;
+  color: @error;
 }
 
 #network {
-  color: #89b4fa;
+  color: @tertiary;
 }
 
 #network.disconnected {
-  color: #f38ba8;
+  color: @error;
 }
 
 #pulseaudio {
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #pulseaudio.muted {
-  color: #6c7086;
+  color: @outline;
 }
 
 #wireplumber {
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #wireplumber.muted {
-  color: #6c7086;
+  color: @outline;
 }
 
 #backlight {
-  color: #f9e2af;
+  color: @warning;
 }
 
 #tray > .passive {
@@ -197,42 +199,42 @@ button:hover {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  color: #f38ba8;
+  color: @error;
 }
 
 #mode {
-  background-color: rgba(203, 166, 247, 0.2);
-  color: #cba6f7;
-  box-shadow: inset 0 -2px #cba6f7;
+  background-color: alpha(@primary, 0.2);
+  color: @primary;
+  box-shadow: inset 0 -2px @primary;
 }
 
 #idle_inhibitor {
-  color: #6c7086;
+  color: @outline;
 }
 
 #idle_inhibitor.activated {
-  color: #cba6f7;
+  color: @primary;
 }
 
 #power-profiles-daemon.performance {
-  color: #f38ba8;
+  color: @error;
 }
 
 #power-profiles-daemon.balanced {
-  color: #89b4fa;
+  color: @tertiary;
 }
 
 #power-profiles-daemon.power-saver {
-  color: #a6e3a1;
+  color: @success;
 }
 
 #mpd {
-  color: #cba6f7;
+  color: @primary;
 }
 
 #mpd.disconnected,
 #mpd.stopped {
-  color: #6c7086;
+  color: @outline;
 }
 
 #scratchpad {
@@ -249,19 +251,19 @@ button:hover {
 
 #privacy-item {
   padding: 0 5px;
-  color: #cdd6f4;
+  color: @on_surface;
 }
 
 #privacy-item.screenshare {
-  color: #fab387;
+  color: @warning;
 }
 
 #privacy-item.audio-in {
-  color: #a6e3a1;
+  color: @success;
 }
 
 #privacy-item.audio-out {
-  color: #89b4fa;
+  color: @tertiary;
 }
 
 label:focus {
