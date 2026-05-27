@@ -43,3 +43,6 @@ systemd/user/timers.target.wants/
 
 # github-copilot
 gh/
+
+# Local backup files
+*.bak.*
