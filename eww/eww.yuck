@@ -401,7 +401,7 @@
       (for workspace in workspaces
         (button :class "workspace ${current_workspace == workspace.id ? "current" : ""}"
                 :onclick "hyprctl dispatch workspace ${workspace.id}"
-                "${current_workspace == workspace.id ? "" : ""}")))))
+                "${workspace.id}")))))
 
 (defwidget divider []
     (label :class "div" :text "|")
@@ -460,7 +460,7 @@
 (defwidget time [time]
     (eventbox :cursor "pointer"
               :onclick "./scripts/calendar.sh"
-              :width 120
+              :width 130
               :height 25
               :class "time-label"
               (label :text "${time}")
@@ -472,7 +472,7 @@
 )
 
 (defpoll get_time :interval "1s"
-                  "date +%H:%M:%S"
+                  "date +' %I:%M %p'"
 )
 
 (defpoll get_uptime :interval "1s"
