@@ -47,6 +47,30 @@
   color: #cdd6f4;
 }
 
+/* Workspace display (ported from ~/src/zenities) */
+.workspaces {
+  font-weight: 900;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  padding: 0 4px;
+}
+
+.workspace {
+  color: $secondary;
+  border-radius: 1rem;
+  margin: 0 0.25rem;
+  padding: 0 0.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.workspace.current {
+  color: $primary;
+}
+
+.workspace:hover {
+  color: mix($on_surface, $primary, 70%);
+}
+
 .visiting, .occupied, .free{
   min-width: 16px;
   min-height: 20px;
