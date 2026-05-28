@@ -5,6 +5,8 @@
 (defwidget bar []
     (box :class "bar"
          :orientation "h"
+         :hexpand true
+         :halign "fill"
          (box :halign "start"
               :valign "center"
               :spacing 10
@@ -251,7 +253,7 @@
 (defwindow wifictl
     :monitor 0
     :stacking "overlay"
-    :focusable "ondemand"
+    :focusable false
     :geometry (geometry :anchor "top right"
                         :x "5px"
                         :y "-14px"
@@ -318,7 +320,7 @@
 (defwindow menuctl
     :monitor 0
     :stacking "overlay"
-    :focusable "ondemand"
+    :focusable false
     :geometry (geometry :anchor "top left"
                         :x "5px"
                         :y "-4px"
@@ -812,9 +814,12 @@
 (defwindow bar_widget
     :monitor 0
     :stacking "fg"
+    :namespace "eww-bar"
     :geometry (geometry :anchor "top center"
-                        :width "99.5%"
-                        :height "3.425%"
+                        :x "0px"
+                        :y "0px"
+                        :width "100%"
+                        :height "43px"
     )
     :exclusive true
     (bar)
