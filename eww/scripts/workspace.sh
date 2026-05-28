@@ -2,18 +2,26 @@
 set -euo pipefail
 
 ws() {
-  local workspaces=6
   local workspace_icon=()
   local workspace_class=()
   local output=""
-  local workspace_data current_workspace windows idx
+  local workspace_data current_workspace workspace_ids windows idx
 
   workspace_data="$(hyprctl workspaces -j)"
   current_workspace="$(hyprctl activeworkspace -j | jq -r '.id')"
+  mapfile -t workspace_ids < <(
+    jq -r --arg current "$current_workspace" '
+      ([.[] | select(.id > 0) | .id] + [($current | tonumber)])
+      | unique
+      | sort
+      | .[]
+    ' <<<"$workspace_data"
+  )
 
-  for ((i = 1; i <= workspaces; i++)); do
+  for idx in "${!workspace_ids[@]}"; do
+    i="${workspace_ids[$idx]}"
     windows="$(jq -r "[.[] | select(.id == ${i})] | .[0]?.windows // 0" <<<"$workspace_data")"
-    workspace_icon+=(" ")
+    workspace_icon+=(" ${i}")
     if [[ "$current_workspace" == "$i" ]]; then
       workspace_class+=("visiting")
     elif [[ "$windows" -gt 0 ]]; then
@@ -22,13 +30,13 @@ ws() {
       workspace_class+=("free")
     fi
     if [[ "$current_workspace" == "$i" ]]; then
-      workspace_icon[i - 1]=" "
+      workspace_icon[$idx]=" ${i}"
     fi
   done
 
   output="(box :class \"ws\" :halign \"end\" :orientation \"h\" :spacing 5 :space-evenly \"false\""
-  for i in {1..6}; do
-    idx=$((i - 1))
+  for idx in "${!workspace_ids[@]}"; do
+    i="${workspace_ids[$idx]}"
     output+=" (eventbox :onclick \"hyprctl dispatch workspace $i\" :cursor \"pointer\" :class \"${workspace_class[$idx]}\" (label :text \"${workspace_icon[$idx]}\"))"
   done
   output+=")"

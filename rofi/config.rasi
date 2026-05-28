@@ -1,0 +1,151 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 14";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    fixed-num-lines: true;
+    cycle: true;
+
+    kb-row-down: "Down,Control+j";
+    kb-row-up: "Up,Control+k";
+    kb-move-char-back: "Left,Control+h";
+    kb-move-char-forward: "Right,Control+l";
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-remove-to-eol: "";
+    kb-mode-complete: "";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-cancel: "Escape,Control+g";
+}
+
+* {
+    background: rgba ( 30, 30, 46, 75 % );
+    background-solid: rgba ( 30, 30, 46, 94 % );
+    surface: rgba ( 49, 50, 68, 78 % );
+    surface-hover: rgba ( 69, 71, 90, 82 % );
+    selected: rgba ( 88, 91, 112, 88 % );
+    foreground: #cdd6f4;
+    muted: #a6adc8;
+    border: rgba ( 137, 180, 250, 70 % );
+    accent: #89b4fa;
+    accent-alt: #cba6f7;
+    urgent: #f38ba8;
+
+    background-color: transparent;
+    text-color: var(foreground);
+}
+
+window {
+    width: 42%;
+    location: center;
+    anchor: center;
+    padding: 0;
+    border: 1px;
+    border-radius: 10px;
+    border-color: var(border);
+    background-color: var(background);
+}
+
+mainbox {
+    padding: 12px;
+    spacing: 10px;
+    background-color: transparent;
+}
+
+inputbar {
+    padding: 10px 12px;
+    spacing: 8px;
+    border: 1px;
+    border-radius: 8px;
+    border-color: rgba ( 137, 180, 250, 35 % );
+    background-color: var(surface);
+    children: [ "prompt", "entry", "num-filtered-rows", "textbox-num-sep", "num-rows" ];
+}
+
+prompt {
+    text-color: var(accent);
+}
+
+entry {
+    placeholder: "Type to filter";
+    placeholder-color: var(muted);
+    text-color: var(foreground);
+    cursor: text;
+}
+
+num-filtered-rows,
+num-rows,
+textbox-num-sep {
+    expand: false;
+    text-color: var(muted);
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    spacing: 4px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    scrollbar: true;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 4px;
+    handle-color: var(selected);
+    background-color: transparent;
+}
+
+element {
+    padding: 9px 10px;
+    spacing: 10px;
+    border: 0;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: var(foreground);
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: var(foreground);
+}
+
+element alternate.normal {
+    background-color: rgba ( 49, 50, 68, 42 % );
+    text-color: var(foreground);
+}
+
+element selected.normal {
+    background-color: var(selected);
+    text-color: var(foreground);
+}
+
+element selected.active,
+element selected.urgent {
+    background-color: var(selected);
+    text-color: var(foreground);
+}
+
+element-icon {
+    size: 1.1em;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+message {
+    padding: 8px;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(surface);
+}
+
+textbox {
+    text-color: var(foreground);
+    background-color: transparent;
+}
