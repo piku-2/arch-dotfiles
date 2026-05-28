@@ -90,7 +90,7 @@
 	"tooltip-format-connected": "{device_enumerate}",
 	"tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
 	"tooltip": true,
-	"on-click": "blueman-manager",
+	"on-click": "$HOME/.config/hypr/scripts/rofi-bluetooth.sh",
 },
 
 "clock": {
@@ -278,6 +278,7 @@
 	"format-icons": [
 		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	],
+	"on-click": "$HOME/.config/hypr/scripts/rofi-wifi.sh",
 	"on-click-right": "ghostty -e nmtui"
 },
 
