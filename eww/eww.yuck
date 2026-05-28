@@ -812,7 +812,6 @@
 )
 
 (defwindow bar_widget
-    :monitor 0
     :stacking "fg"
     :namespace "eww-bar"
     :geometry (geometry :anchor "top center"

@@ -18,6 +18,9 @@ update_monitors() {
   fi
 
   awww restore >/dev/null 2>&1 || true
+
+  # Re-open eww bar on the current monitor set
+  ~/.config/eww/scripts/bar.sh >/dev/null 2>&1 || true
 }
 
 handle() {
