@@ -1,17 +1,20 @@
 return {
   {
-    "catppuccin/nvim",
-    name     = "catppuccin",
+    "folke/tokyonight.nvim",
     lazy     = false,
     priority = 1000,
-    opts     = { flavour = "mocha" },
+    opts     = {
+      style = "night",
+      transparent = false,
+      terminal_colors = true,
+    },
     config   = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin-mocha")
+      require("tokyonight").setup(opts)
+      vim.cmd.colorscheme("tokyonight-night")
     end,
   },
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "catppuccin-mocha" },
+    opts = { colorscheme = "tokyonight-night" },
   },
 }
