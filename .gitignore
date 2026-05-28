@@ -44,5 +44,8 @@ systemd/user/timers.target.wants/
 # github-copilot
 gh/
 
+# eww icon
+eww/hare.jpg
+
 # Local backup files
 *.bak.*

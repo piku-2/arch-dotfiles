@@ -391,7 +391,7 @@
     (literal :content workspaces-output)
 )
 
-(defvar workspaces-output "(box :class \"ws\" :halign \"end\" :orientation \"h\" :spacing 5 :space-evenly \"false\" (eventbox :onclick \"hyprctl dispatch workspace 1\" :cursor \"pointer\" :class \"visiting\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 2\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 3\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 4\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 5\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 6\" :cursor \"pointer\" :class \"free\" (label :text \" \")))")
+(defvar workspaces-output "(box :class \"ws\" :halign \"end\" :orientation \"h\" :spacing 0 :space-evenly \"false\" (eventbox :onclick \"hyprctl dispatch workspace 1\" :cursor \"pointer\" :class \"visiting\" (label :text \"1\")) (eventbox :onclick \"hyprctl dispatch workspace 2\" :cursor \"pointer\" :class \"free\" (label :text \"2\")) (eventbox :onclick \"hyprctl dispatch workspace 3\" :cursor \"pointer\" :class \"free\" (label :text \"3\")) (eventbox :onclick \"hyprctl dispatch workspace 4\" :cursor \"pointer\" :class \"free\" (label :text \"4\")) (eventbox :onclick \"hyprctl dispatch workspace 5\" :cursor \"pointer\" :class \"free\" (label :text \"5\")) (eventbox :onclick \"hyprctl dispatch workspace 6\" :cursor \"pointer\" :class \"free\" (label :text \"6\")))")
 
 (defwidget divider []
     (label :class "div" :text "|")
@@ -803,7 +803,7 @@
 
 (defwindow bar_widget
     :monitor 0
-    :stacking "bg"
+    :stacking "fg"
     :geometry (geometry :anchor "top center"
                         :width "99.5%"
                         :height "3.425%"
