@@ -1,7 +1,6 @@
 return {
 	"folke/snacks.nvim",
 	opts = {
-		dashboard = { enabled = false },
 		explore = {},
 		picker = {
 			-- 最初から隠しファイルを表示する
