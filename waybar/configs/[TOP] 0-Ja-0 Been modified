@@ -30,7 +30,7 @@
 "modules-center": [
 	"group/app_drawer",
 	"custom/separator#dot-line",
-	"hyprland/workspaces#kanji",
+	"hyprland/workspaces#numbers",
 	"custom/separator#dot-line",
 	"group/notify",	
 	],
@@ -39,6 +39,8 @@
         //"mpris",
         //"custom/separator#dot-line",
 	"group/laptop",
+	"custom/separator#blank",
+	"group/connections",
 	"custom/separator#blank",
 	"group/mobo_drawer",
 	"custom/separator#line",  

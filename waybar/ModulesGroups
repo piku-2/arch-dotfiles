@@ -14,11 +14,9 @@
         },
 	"modules": [
 		"custom/menu",
-		"custom/light_dark",
 		"custom/file_manager",
 		"custom/tty",
 		"custom/browser",
-		"custom/settings",
 	]
 },
 "group/motherboard": {
@@ -90,8 +88,6 @@
 	"modules": [
 		"custom/power",
 		"custom/lock",
-		"keyboard-state",
-		"custom/keyboard",
 	]
 },
 "group/notify": {

@@ -19,14 +19,14 @@
 
 "custom/file_manager": {
 	"format": " ",
-	"on-click": "xdg-open . &",
+	"on-click": "ghostty -e yazi",
 	"tooltip": true,
 	"tooltip-format": "File Manager",
 },
 
 "custom/tty": {
 	"format": " ",
-	"on-click": "$HOME/.config/hypr/scripts/WaybarScripts.sh --term",
+	"on-click": "ghostty",
 	"tooltip": true,
 	"tooltip-format": "Launch Terminal",
 },
@@ -99,7 +99,7 @@
 
 "custom/lock": {
 	"format": "󰌾",
-	"on-click": "$HOME/.config/hypr/scripts/LockScreen.sh",
+	"on-click": "hyprlock",
 	"tooltip": true,
 	"tooltip-format": "󰷛 Screen Lock",
 },
@@ -107,10 +107,9 @@
 "custom/menu": {
 	"format": "  ",
 	"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window",
-	"on-click-middle": "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh",
-	"on-click-right": "$HOME/.config/hypr/scripts/WaybarLayout.sh",
+	"on-click-middle": "$HOME/.config/hypr/scripts/wallpaper-select.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu",
+	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu",
 },
 // This is a custom cava visualizer
 "custom/cava_mviz": {
@@ -134,8 +133,7 @@
     
 "custom/power": {
 	"format": "⏻",
-	"on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",
-	"on-click-right": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
+	"on-click": "wlogout --buttons-per-row 5 --column-spacing 24 --row-spacing 0 --margin 560 --no-span",
 	"tooltip": true,
 	"tooltip-format":"Logout Menu",
 },
