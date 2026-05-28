@@ -3,6 +3,30 @@ set -euo pipefail
 
 runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 hypr_signature="${HYPRLAND_INSTANCE_SIGNATURE:-}"
+current_wallpaper_file="$HOME/.cache/awww/current_wallpaper"
+wallpapers_dir="$HOME/Pictures/Wallpapers"
+fixed_wallpaper="$wallpapers_dir/operation.jpg"
+fixed_wallpaper_alt="$wallpapers_dir/operationd.jpg"
+
+apply_current_wallpaper() {
+  local wallpaper=""
+
+  if [ -f "$current_wallpaper_file" ]; then
+    wallpaper="$(head -n 1 "$current_wallpaper_file" || true)"
+  fi
+
+  if [ -z "${wallpaper:-}" ] || [ ! -f "$wallpaper" ]; then
+    if [ -f "$fixed_wallpaper" ]; then
+      wallpaper="$fixed_wallpaper"
+    elif [ -f "$fixed_wallpaper_alt" ]; then
+      wallpaper="$fixed_wallpaper_alt"
+    fi
+  fi
+
+  if [ -n "${wallpaper:-}" ] && [ -f "$wallpaper" ]; then
+    ~/.config/hypr/scripts/wallpaper-apply.sh "$wallpaper" >/dev/null 2>&1 || true
+  fi
+}
 
 update_monitors() {
   local external_monitors external_count
@@ -17,10 +41,10 @@ update_monitors() {
     sleep 1
   fi
 
-  awww restore >/dev/null 2>&1 || true
+  apply_current_wallpaper
 
-  # Re-open eww bar on the current monitor set
-  ~/.config/eww/scripts/bar.sh >/dev/null 2>&1 || true
+  # Re-open Waybar on the current monitor set
+  ~/.config/hypr/scripts/waybar-launch.sh >/dev/null 2>&1 || true
 }
 
 handle() {
